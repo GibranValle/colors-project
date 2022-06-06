@@ -32,10 +32,10 @@ export default function Palette() {
     })
 
     return (
-        <RootDiv>
+        <RootDiv className='Palette'>
             <Navbar changeLevel={changeLevel} level={level}
                 format={format} changeFormat={changeFormat} />
-            <PaletteColors>
+            <PaletteColors className='Palette-colors'>
                 {colorBoxes}
             </PaletteColors>
             <PaletteFooter {...props} />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const lightColor = '#ffffffda'
 const darkColor = '#626262'
 
-export default {
+const Styles = {
   RootDiv: styled('div')(props => {
     const isSingle = props.singlecolor === 'true'
     const isButton = props.button === 'true'
@@ -151,3 +151,5 @@ export default {
     </Link>
   )
 }
+
+export default Styles

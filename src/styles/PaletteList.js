@@ -1,17 +1,17 @@
 import { styled } from '@mui/system';
 
-export default{
+const Style = {
   RootDiv: styled('div')({
     backgroundColor: 'blue',
-    height: '100%',
     display: 'flex',
     alignItems: 'flex-start',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: '100%'
   }),
   Container: styled('div')({
-    width: '50%',
+    width: '70%',
     display: 'flex',
-    height: '100%',
+    height: '50%',
     alignItems: 'flex-start',
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -20,9 +20,14 @@ export default{
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
-    color: 'white'
+    alignItems: 'center',
+    color: 'white',
+    '.Link': {
+      color: 'white'
+    }
   }),
   Palettes: styled('div')({
+    height: '20%',
     boxSizing: 'border-box',
     width: '100%',
     display: 'grid',
@@ -30,3 +35,5 @@ export default{
     gap: '5%'
   })
 }
+
+export default Style

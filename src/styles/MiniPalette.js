@@ -1,8 +1,9 @@
 import { styled, experimental_sx as sx } from '@mui/system';
 
-export default {
+const Style = {
   RootDiv: styled('div')(
     sx({
+      height: '150px',
       color: '#000',
       backgroundColor: 'white',
       border: '1px solid black',
@@ -15,7 +16,16 @@ export default {
       }
     })
   ),
-    MiniColor: styled('div')(props => ({
+  ColorDiv: styled('div')(
+    sx({
+      backgroundColor: 'gray',
+      height: '120px',
+      borderRadius: '5px',
+      overflow: 'hidden',
+      textAlign: 'start'
+    })
+  ),
+  MiniColor: styled('div')(props => ({
     backgroundColor: props.color,
     height: '25%',
     width: '20%',
@@ -24,15 +34,8 @@ export default {
     position: 'relative',
     marginBottom: '-4px'
   })),
-    ColorDiv: styled('div')(
-    sx({
-      backgroundColor: 'gray',
-      height: '150px',
-      borderRadius: '5px',
-      overflow: 'hidden'
-    })
-  ),
-    Footer: styled('h5')(
+
+  Footer: styled('h5')(
     sx({
       display: 'flex',
       justifyContent: 'space-between',
@@ -44,5 +47,7 @@ export default {
       position: 'relative'
     })
   ),
-    Emoji: styled('span')(sx({ marginLeft: '0.5rem', fontSize: '1.5rem' }))
+  Emoji: styled('span')(sx({ marginLeft: '0.5rem', fontSize: '1.5rem' }))
 }
+
+export default Style

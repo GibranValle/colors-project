@@ -1,7 +1,7 @@
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 
-export default {
+const Style = {
   RootDiv: styled('nav')({
     display: 'flex',
     alignItems: 'center',
@@ -34,20 +34,20 @@ export default {
     width: '340px',
     margin: '0 10px',
     display: 'inline-block',
-    '&: .rc-slider-track': {
+    '.rc-slider-track': {
       backgroundColor: 'green'
     },
-    '&: .rc-slider-rail': {
+    '.rc-slider-rail': {
       backgroundColor: 'lightgray'
     },
-    '&: .rc-slider-handle,.rc-slider-handle:active,.rc-slider-handle:focus,.rc-slider-handle:hover': {
+    '.rc-slider-handle,.rc-slider-handle:active,.rc-slider-handle:focus,.rc-slider-handle:hover': {
       backgroundColor: 'green',
       outline: 'none',
       border: 'none',
       boxShadow: 'none!important',
       opacity: '1! important',
     },
-    '&: .rc-slider-handle-dragging': {
+    '.rc-slider-handle-dragging': {
       outline: '4 px solid rgba(0, 128, 0, 0.443) !important',
       border: 'none!important',
       backgroundColor: 'green!important',
@@ -57,3 +57,5 @@ export default {
   }),
   SelectContainer: styled('div')({ marginLeft: 'auto' }),
 }
+
+export default Style

@@ -6,13 +6,13 @@ const {RootDiv, MiniColor, ColorDiv, Footer, Emoji} = styles
 export default function MiniPalette(props) {
     const { paletteName, emoji, colors }=props
     const miniColorBoxes=colors.map(color => {
-        return <MiniColor color={color.color} key={color.name}> </MiniColor>
+        return <MiniColor className='MiniBox' color={color.color} key={color.name}> </MiniColor>
     })
     const goToPalette=() => props.goToPalette(props.id)
 
     return (
-        <RootDiv onClick={goToPalette}>
-            <ColorDiv>
+        <RootDiv onClick={goToPalette} className='MiniPalette'>
+            <ColorDiv className='MiniBox-container'>
                 {miniColorBoxes}
             </ColorDiv>
             <Footer>
