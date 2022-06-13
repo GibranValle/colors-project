@@ -11,8 +11,9 @@ const Style = {
       position: 'relative',
       marginTop: '5px',
       borderRadius: '5px',
-      "&:hover": {
-        cursor: 'pointer'
+      cursor: 'pointer',
+      "&:hover .svg": {
+        opacity: '1'
       }
     })
   ),
@@ -34,7 +35,18 @@ const Style = {
     position: 'relative',
     marginBottom: '-4px'
   })),
-
+  DeleteButton: styled('div')({
+    backgroundColor: 'red',
+    padding: '10px',
+    position: 'absolute',
+    right: '0',
+    top: '0',
+    opacity: '0',
+    zIndex: '10',
+    color: 'white',
+    transition: 'opacity 200ms ease-in',
+    borderRadius: '0 5px 0 0'
+  }),
   Footer: styled('h5')(
     sx({
       display: 'flex',

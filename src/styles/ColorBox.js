@@ -1,8 +1,7 @@
 import { styled } from '@mui/system'
 import { Link } from 'react-router-dom'
 
-const lightColor = '#ffffffda'
-const darkColor = '#626262'
+import { lightColor, darkColor } from '../constants'
 
 const Styles = {
   RootDiv: styled('div')(props => {

@@ -4,19 +4,23 @@ import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Palettes from './seedColors';
 
 export default function App() {
-  const [palettes, setPalettes] = useState(Palettes)
-  const savePalette = (newPalette) => {
-    setPalettes([...palettes, newPalette])
-    console.log(palettes)
+  const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
+  const [palettes, setPalettes] = useState(savedPalettes || Palettes)
+  const SavePalette = (newPalette) => {
+    const newPalettes = [...palettes, newPalette]
+    setPalettes(newPalettes)
+    useEffect(() => {
+      window.localStorage.setItem("palettes", JSON.stringify(palettes));
+    }, [palettes])
   }
   return (
     <div className="App">
       <Routes>
-        <Route exact path='/palette/new' element={<NewPaletteForm palettes={palettes} savePalette={savePalette}/>}></Route>
+        <Route exact path='/palette/new' element={<NewPaletteForm palettes={palettes} savePalette={SavePalette}/>}></Route>
         <Route exact path='/' element={<PaletteList palettes = {palettes}/>}/>
         <Route exact path='/palette/:paletteId' element={<Palette />}/>
         <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorPalette />}/>

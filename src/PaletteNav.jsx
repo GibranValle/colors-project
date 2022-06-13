@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { styled } from '@mui/material/styles';
@@ -17,8 +17,8 @@ import PaletteFormDialog from './PaletteFormDialog';
 export default function PaletteNav(props) {
     const { open, savePalette, openDrawer, palettes, drawerWidth }=props
 
-    const handleSubmit=(paletteName) => {
-        savePalette(paletteName)
+    const handleSubmit=(paletteName, emoji) => {
+        savePalette(paletteName, emoji)
     }
     const handleClick=() => {
         openDrawer()
@@ -59,12 +59,15 @@ export default function PaletteNav(props) {
                         Create a Palette
                     </Typography>
 
-                    <PaletteFormDialog palettes={palettes} handleSubmit={handleSubmit} />
-                    <Link to='/' style={{ textDecoration: 'none' }}>
-                        <Button variant='contained' color='error' sx={{ height: '54px', lineHeight: '54px', fontSize: '1.25em' }}>
-                            Go back
-                        </Button>
-                    </Link>
+                    <Stack direction={'row'} gap={'0.5em'}>
+                        <PaletteFormDialog palettes={palettes} handleSubmit={handleSubmit} />
+                        <Link to='/' style={{ textDecoration: 'none' }}>
+                            <Button variant='contained' color='error' sx={{ height: '54px', lineHeight: '54px', fontSize: '1.25em' }}>
+                                Go back
+                            </Button>
+                        </Link>
+                    </Stack>
+
                 </Toolbar>
             </AppBar>
         </nav>

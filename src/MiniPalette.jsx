@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './styles/MiniPalette'
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const {RootDiv, MiniColor, ColorDiv, Footer, Emoji} = styles
+const { RootDiv, MiniColor, ColorDiv, Footer, Emoji, DeleteButton }=styles
 
 export default function MiniPalette(props) {
     const { paletteName, emoji, colors }=props
@@ -12,8 +13,12 @@ export default function MiniPalette(props) {
 
     return (
         <RootDiv onClick={goToPalette} className='MiniPalette'>
+            <DeleteButton className='svg'>
+                <DeleteIcon />
+            </DeleteButton>
             <ColorDiv className='MiniBox-container'>
                 {miniColorBoxes}
+
             </ColorDiv>
             <Footer>
                 <span>{paletteName}</span>

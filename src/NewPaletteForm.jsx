@@ -20,8 +20,7 @@ import PaletteNav from './PaletteNav'
 import ColorPickerForm from './ColorPickerForm';
 import Styled from './styles/NewPaletteForm';
 
-const drawerWidth=400;
-const MAX_COLORS=20
+import { drawerWidth, MAX_COLORS } from './constants'
 
 
 export default function NewPaletteForm(props) {
@@ -65,12 +64,12 @@ export default function NewPaletteForm(props) {
     setColors(arrayMoveImmutable(colors, oldIndex, newIndex))
   }
 
-  const HanldeSavePalette=(paletteName) => {
+  const HanldeSavePalette=(paletteName, emoji) => {
     const newPalette={
       paletteName,
       colors,
-      emoji: 'test emoji',
-      id: 'test-id'
+      emoji,
+      id: paletteName.replace(/ /g, '-')
     }
     props.savePalette(newPalette)
     useGoToHome()
