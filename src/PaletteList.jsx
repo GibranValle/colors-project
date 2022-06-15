@@ -7,6 +7,7 @@ import styles from './styles/PaletteList'
 const { RootDiv, Container, Palettes, Nav }=styles
 
 export default function PaletteList(props) {
+    const { DeletePalette }=props
     console.log(props.palettes)
     //hooks
     let navigate=useNavigate();
@@ -23,7 +24,8 @@ export default function PaletteList(props) {
                     <Link to='/palette/new' className='Link'>Create palette</Link>
                 </Nav>
                 <Palettes className='Palettes'>
-                    {palettes.map(palette => <MiniPalette key={palette.id} {...palette} goToPalette={useGoToPalette} />)}
+                    {palettes.map(palette => <MiniPalette key={palette.id} id={palette.id}
+                        DeletePalette={DeletePalette} {...palette} goToPalette={useGoToPalette} />)}
                 </Palettes>
             </Container>
         </RootDiv>

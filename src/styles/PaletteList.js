@@ -6,15 +6,17 @@ const Style = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    height: '100%'
+    height: '100%',
+    overflowY: 'auto',
   }),
   Container: styled('div')({
     width: '70%',
     display: 'flex',
     height: '50%',
-    alignItems: 'flex-start',
+    alignItems: 'flex-end',
     flexDirection: 'column',
     flexWrap: 'wrap',
+    justifyContent: 'flex-start'
   }),
   Nav: styled('nav')({
     display: 'flex',
@@ -30,8 +32,9 @@ const Style = {
     height: '20%',
     boxSizing: 'border-box',
     width: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 30%)',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: '5%'
   })
 }

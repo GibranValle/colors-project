@@ -3,8 +3,9 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Link } from 'react-router-dom'
 import chroma from 'chroma-js'
 
+import { themeSizes } from './constants';
 import styles from './styles/ColorBox'
-const {RootDiv, CopyOverlay, CopyMsg, Msg, ColorCode, BoxContent, CopyButton, StyledLink, SeeMore, ColorName } = styles
+const { RootDiv, CopyOverlay, CopyMsg, Msg, ColorCode, BoxContent, CopyButton, StyledLink, SeeMore, ColorName }=styles
 
 
 export default function Colorbox(props) {
@@ -26,9 +27,10 @@ export default function Colorbox(props) {
     const luminance=chroma(background).luminance()
     const isDark=luminance<0.5
     return (
-        <CopyToClipboard text={background} onCopy={!isButton && handleCopy}>
-            <RootDiv className='ColorBox' background={background} button = {isButton.toString()}
-            singlecolor={singleColor.toString()} >
+        <CopyToClipboard text={background} onCopy={!isButton&&handleCopy}>
+            {/* pass themesizes created in constant files in order to use them in sx*/}
+            <RootDiv theme={themeSizes} className='ColorBox' background={background} button={isButton.toString()}
+                singlecolor={singleColor.toString()} >
                 <CopyOverlay background={background} copied={copied.toString()}></CopyOverlay>
                 <CopyMsg copied={copied.toString()}>
                     <Msg>copied</Msg>

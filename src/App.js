@@ -13,15 +13,19 @@ export default function App() {
   const SavePalette = (newPalette) => {
     const newPalettes = [...palettes, newPalette]
     setPalettes(newPalettes)
-    useEffect(() => {
-      window.localStorage.setItem("palettes", JSON.stringify(palettes));
-    }, [palettes])
+  }
+  useEffect(() => {
+    window.localStorage.setItem("palettes", JSON.stringify(palettes));
+  })
+  const DeletePalette = (id) => {
+    const newPalettes = palettes.filter(palette => palette.id !== id)
+    setPalettes(newPalettes)
   }
   return (
     <div className="App">
       <Routes>
         <Route exact path='/palette/new' element={<NewPaletteForm palettes={palettes} savePalette={SavePalette}/>}></Route>
-        <Route exact path='/' element={<PaletteList palettes = {palettes}/>}/>
+        <Route exact path='/' element={<PaletteList palettes = {palettes} DeletePalette={DeletePalette}/>}/>
         <Route exact path='/palette/:paletteId' element={<Palette />}/>
         <Route exact path='/palette/:paletteId/:colorId' element={<SingleColorPalette />}/>
       </Routes>

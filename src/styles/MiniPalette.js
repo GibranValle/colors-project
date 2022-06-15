@@ -1,9 +1,21 @@
-import { styled, experimental_sx as sx } from '@mui/system';
+import { styled, experimental_sx as sx, createTheme } from '@mui/system';
 
 const Style = {
+  theme: createTheme({
+    breakpoints: {
+      values: {
+        xxs: 0, // small phone
+        xs: 300, // phone
+        sm: 600, // tablets
+        md: 900, // small laptop
+        lg: 1200, // desktop
+        xl: 1536 // large screens
+      }
+    }
+  }),
   RootDiv: styled('div')(
     sx({
-      height: '150px',
+      minWidth: '250px',
       color: '#000',
       backgroundColor: 'white',
       border: '1px solid black',
@@ -26,15 +38,17 @@ const Style = {
       textAlign: 'start'
     })
   ),
-  MiniColor: styled('div')(props => ({
-    backgroundColor: props.color,
-    height: '25%',
-    width: '20%',
-    display: 'inline-block',
-    margin: '0 auto',
-    position: 'relative',
-    marginBottom: '-4px'
-  })),
+  MiniColor: styled('div')(props => (
+    sx({
+      backgroundColor: props.color,
+      height: '25%',
+      width: '20%',
+      display: 'inline-block',
+      margin: '0 auto',
+      position: 'relative',
+      marginBottom: '-4px',
+    })
+  )),
   DeleteButton: styled('div')({
     backgroundColor: 'red',
     padding: '10px',

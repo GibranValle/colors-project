@@ -24,12 +24,12 @@ import { drawerWidth, MAX_COLORS } from './constants'
 
 
 export default function NewPaletteForm(props) {
+  const { palettes }=props
   let navigate=useNavigate();
   const useGoToHome=() => { navigate(`/`) }
 
   const theme=useTheme();
   const [open, setOpen]=useState(false);
-  const [palettes, setPalettes]=useState(props.palettes)
   const [colors, setColors]=useState(props.palettes[0].colors)
 
   const handleDrawerOpen=() => setOpen(true);

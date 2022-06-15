@@ -1,31 +1,52 @@
-import { styled } from '@mui/system'
+// LIST PALETTE
+// MUI RESPONSIVE MEDIA QUERY
+
+import { styled, experimental_sx as sx, createTheme } from '@mui/system'
 import { Link } from 'react-router-dom'
+// import { createTheme } from '@mui/system'
 
 import { lightColor, darkColor } from '../constants'
 
 const Styles = {
+  // theme: createTheme({
+  //   breakpoints: {
+  //     values: {
+  //       xxs: 0, // small phone
+  //       xs: 300, // phone
+  //       sm: 600, // tablets
+  //       md: 900, // small laptop
+  //       lg: 1200, // desktop
+  //       xl: 1536 // large screens
+  //     }
+  //   }
+  // }),
   RootDiv: styled('div')(props => {
     const isSingle = props.singlecolor === 'true'
     const isButton = props.button === 'true'
-    return {
+    return sx({
       backgroundColor: props.background,
-      width: '20%',
-      height: `${isSingle? '50%':'25%'}`,
+      width: {
+        xs: '100%',
+        sm: '50%',
+        md: '25%',
+        lg: '20%'
+      },
+      height: {
+        xs: `${isSingle? '5%':'5%'}`, // 100/20 color rows
+        sm: `${isSingle? '10%':'10%'}`, // 100/10 color rows
+        md: `${isSingle? '20%':'20%'}`, // 100/5 color rows
+        lg: `${isSingle? '25%':'25%'}` // 100/4 color rows
+      },
       margin: '0 auto',
       display: 'inline-block',
       position: 'relative',
       cursor: `${isButton? 'default' :'pointer' }`,
       textAlign: 'start',
       marginBottom: '-4px',
-      // "&:hover": {
-      //     '& .copy-button': {
-      //         opacity: '1'
-      //     }
-      // }
       '&:hover .copy-button': {
         opacity: '1'
       }
-    }
+    })
   }),
   CopyOverlay: styled('div')(props => {
     // convert string to boolean
