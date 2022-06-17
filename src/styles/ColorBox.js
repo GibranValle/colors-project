@@ -26,32 +26,31 @@ const Styles = {
     return sx({
       backgroundColor: props.background,
       width: {
-        xs: '100%',
-        sm: '50%',
-        md: '25%',
-        lg: '20%'
+        xs: `${isSingle? '100%':'100%'}`, // 100/20 color rows - 100/10
+        sm: `${isSingle? '50%':'50%'}`, // 100/10 color rows
+        md: `${isSingle? '50%':'25%'}`, // 100/5 color rows
+        lg: `${isSingle? '20%':'20%'}` // 100/4 color rows
       },
       height: {
-        xs: `${isSingle? '5%':'5%'}`, // 100/20 color rows
-        sm: `${isSingle? '10%':'10%'}`, // 100/10 color rows
+        xs: `${isSingle? '10%':'5%'}`, // 100/20 color rows - 100/10
+        sm: `${isSingle? '20%':'10%'}`, // 100/10 color rows
         md: `${isSingle? '20%':'20%'}`, // 100/5 color rows
-        lg: `${isSingle? '25%':'25%'}` // 100/4 color rows
+        lg: `${isSingle? '50%':'25%'}` // 100/4 color rows
       },
       margin: '0 auto',
       display: 'inline-block',
       position: 'relative',
       cursor: `${isButton? 'default' :'pointer' }`,
       textAlign: 'start',
-      marginBottom: '-4px',
+      marginBottom: '4px',
       '&:hover .copy-button': {
         opacity: '1'
       }
     })
   }),
   CopyOverlay: styled('div')(props => {
-    // convert string to boolean
     const copied = props.copied === 'true'
-    return {
+    return sx({
       opacity: `${copied? 1:0}`,
       zIndex: `${copied? 10:0}`,
       width: '100%',
@@ -59,8 +58,8 @@ const Styles = {
       transition: 'transform 1s ease-in-out',
       transform: `${copied? 'scale(50)':'scale(0.1)'}`,
       backgroundColor: props.background,
-      position: 'absolute'
-    }
+      position: 'absolute',
+    })
   }),
   CopyMsg: styled('div')(props => {
     const copied = props.copied === 'true'
@@ -82,25 +81,35 @@ const Styles = {
       transitionDelay: `${copied? '0.2s':'0'}`,
     }
   }),
-  Msg: styled('h1')({
-    width: '100%',
-    textAlign: 'center',
-    backgroundColor: '#ffffff4b',
-    color: 'white',
-    textShadow: '2px 2px 2px black',
-    textTransform: 'uppercase',
-    margin: '0',
-    fontWeight: '400',
+  Msg: styled('h1')(props => {
+    return sx({
+      width: '100%',
+      textAlign: 'center',
+      backgroundColor: '#ffffff4b',
+      color: 'white',
+      textShadow: '2px 2px 2px black',
+      textTransform: 'uppercase',
+      margin: '0',
+      fontWeight: '400',
+      fontSize: {
+        xs: '1em',
+        lg: '2em'
+      }
+    })
   }),
   ColorCode: styled('p')(props => {
     const isDark = props.dark === 'true'
-    return {
+    return sx({
       textAlign: 'center',
       width: '100%',
       backgroundColor: `${isDark? lightColor:darkColor}`,
       color: `${!isDark? lightColor:darkColor}`,
-      fontWeight: '600'
-    }
+      fontWeight: '600',
+      fontSize: {
+        xs: '1em',
+        lg: '1.75em'
+      }
+    })
   }),
   BoxContent: styled('div')(props => {
     return {

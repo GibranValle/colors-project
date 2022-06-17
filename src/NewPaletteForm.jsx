@@ -93,7 +93,7 @@ export default function NewPaletteForm(props) {
         variant="persistent"
         anchor="left"
         open={open}>
-        <Styled.DrawerHeader>
+        <Styled.DrawerHeader className='header'>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction==='ltr'? <ChevronLeftIcon />:<ChevronRightIcon />}
           </IconButton>
@@ -112,7 +112,7 @@ export default function NewPaletteForm(props) {
         </Styled.DrawerColumn>
       </Drawer>
       <Styled.Main open={open} className='Main'>
-        <Styled.DrawerHeader />
+        <Styled.DrawerHeader className='header' />
         {/* PAGE GOES HERE */}
         <DraggableComponent colors={colors} handleDelete={handleDelete} className='draggable' hanldeSortEnd={hanldeSortEnd} />
       </Styled.Main>

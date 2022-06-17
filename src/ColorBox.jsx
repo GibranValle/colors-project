@@ -31,7 +31,7 @@ export default function Colorbox(props) {
             {/* pass themesizes created in constant files in order to use them in sx*/}
             <RootDiv theme={themeSizes} className='ColorBox' background={background} button={isButton.toString()}
                 singlecolor={singleColor.toString()} >
-                <CopyOverlay background={background} copied={copied.toString()}></CopyOverlay>
+                <CopyOverlay className='CopyOverlay' background={background} copied={copied.toString()}></CopyOverlay>
                 <CopyMsg copied={copied.toString()}>
                     <Msg>copied</Msg>
                     <ColorCode dark={isDark.toString()}>{background}</ColorCode>

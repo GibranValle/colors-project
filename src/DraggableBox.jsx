@@ -5,18 +5,28 @@ import { styled, experimental_sx as sx } from '@mui/system'
 
 const Styled={
   Root: styled('div')(props => (sx({
-      backgroundColor: `${props.color}`,
-      height: '25%',
-      width: '20%',
-      margin: '0 auto',
-      position: 'relative',
-      display: 'inline-block',
-      cursor: 'pointer',
-      marginBottom: '-6.8px',
-      '&:hover svg': {
-        color: 'white',
-        transform: 'scale(1.15)'
-      }
+    backgroundColor: `${props.color}`,
+    height: {
+      xs: '5%',
+      sm: '10%',
+      md: '20%',
+      lg: '25%'
+    },
+    width: {
+      xs: '100%',
+      sm: '50%',
+      md: '25%',
+      lg: '20%'
+    },
+    margin: '0 auto',
+    position: 'relative',
+    display: 'inline-block',
+    cursor: 'pointer',
+    marginBottom: '-6.5px',
+    '&:hover svg': {
+      color: 'white',
+      transform: 'scale(1.15)'
+    }
   }))),
   BoxContent: styled('div')(props => {
     return {

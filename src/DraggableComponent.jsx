@@ -2,11 +2,11 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { SortableContainer } from 'react-sortable-hoc'
 import DraggableBox from './DraggableBox'
+import theme from './styles/sizes'
 
 const Styled={
     Root: styled('div')({
-        height: '100%',
-        textAlign: 'start'
+        height: '100%'
     })
 }
 
@@ -15,7 +15,7 @@ const DraggableList=SortableContainer(props => {
     const { colors, handleDelete }=props
     return (
         <Styled.Root className='DraggableList'>
-            {colors.map((color, index) => <DraggableBox color={color.color}
+            {colors.map((color, index) => <DraggableBox color={color.color} theme={theme}
                 name={color.name} handleDelete={handleDelete} index={index} key={color.name} />)}
         </Styled.Root>
     )

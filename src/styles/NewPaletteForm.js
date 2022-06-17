@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
-const drawerWidth = 400;
-const AppBarHeight = 64;
+import { AppBarHeight, drawerWidth } from '../constants';
 
 const Styled = {
   Main: styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -28,7 +27,7 @@ const Styled = {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100%',
+      height: '90%',
       // backgroundColor: props.theme.palette.primary.dark
       backgroundColor: 'primary',
       gap: '15px',
@@ -50,11 +49,10 @@ const Styled = {
     }
   }),
   DrawerHeader: styled('div')(({ theme }) => ({
+    height: `${AppBarHeight}px`,
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   }))
 }

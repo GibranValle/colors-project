@@ -7,9 +7,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
 import EmojiPicker from './EmojiPicker';
+import Style from './styles/PaletteNav'
 
 export default function PaletteFormDialog(props) {
-    const { palettes, handleSubmit }=props
+    const { palettes, handleSubmit, theme }=props
     const [stage, setStage]=useState('')
     const [paletteName, setPaletteName]=useState('')
     const [emoji, setEmoji]=useState('')
@@ -31,9 +32,8 @@ export default function PaletteFormDialog(props) {
     ValidatorForm.addValidationRule('isPaletteNameUnique', value => palettes.every(p => p.paletteName!==value))
     return (
         <div>
-            <Button variant="contained" color='primary' onClick={handleClickOpen} sx={{ height: '55px', fontSize: '1.25em' }}>
-                Save Palette
-            </Button>
+            <Style.Button>Save Palette</Style.Button>
+
             {/* EMOJI DIALOG */}
             <Dialog open={stage==='emoji'}>
                 <ValidatorForm onSubmit={handleDialogSubmit} style={{ width: '400px', textAlign: 'center' }}>
