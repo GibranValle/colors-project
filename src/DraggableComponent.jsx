@@ -25,5 +25,5 @@ export default function DraggableComponent(props) {
     const onSortEnd=({ newIndex, oldIndex }) => {
         props.hanldeSortEnd(newIndex, oldIndex)
     }
-    return <DraggableList {...props} onSortEnd={onSortEnd} axis='xy' />
+    return <DraggableList {...props} onSortEnd={onSortEnd} axis='xy' distance={20} />
 }
