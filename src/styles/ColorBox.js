@@ -37,12 +37,11 @@ const Styles = {
         md: `${isSingle? '20%':'20%'}`, // 100/5 color rows
         lg: `${isSingle? '50%':'25%'}` // 100/4 color rows
       },
-      margin: '0 auto',
       display: 'inline-block',
       position: 'relative',
       cursor: `${isButton? 'default' :'pointer' }`,
       textAlign: 'start',
-      marginBottom: '4px',
+      marginBottom: '-4px',
       '&:hover .copy-button': {
         opacity: '1'
       }

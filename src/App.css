@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 .App {
     text-align: center;
     height: 100%;
@@ -38,4 +44,10 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.page {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
 }

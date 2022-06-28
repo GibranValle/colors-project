@@ -35,7 +35,9 @@ const Style = {
       height: '120px',
       borderRadius: '5px',
       overflow: 'hidden',
-      textAlign: 'start'
+      textAlign: 'start',
+      display: 'flex',
+      flexWrap: 'wrap'
     })
   ),
   MiniColor: styled('div')(props => (
@@ -44,9 +46,7 @@ const Style = {
       height: '25%',
       width: '20%',
       display: 'inline-block',
-      margin: '0 auto',
       position: 'relative',
-      marginBottom: '-4px',
     })
   )),
   DeleteButton: styled('div')({

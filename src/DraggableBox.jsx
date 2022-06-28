@@ -22,7 +22,7 @@ const Styled={
     position: 'relative',
     display: 'inline-block',
     cursor: 'pointer',
-    marginBottom: '-6.5px',
+    marginBottom: '-7px',
     '&:hover svg': {
       color: 'white',
       transform: 'scale(1.15)'

@@ -19,7 +19,7 @@ import { arrayMoveImmutable } from 'array-move';
 import PaletteNav from './PaletteNav'
 import ColorPickerForm from './ColorPickerForm';
 import Styled from './styles/NewPaletteForm';
-
+import seedColors from './seedColors'
 import { drawerWidth, MAX_COLORS } from './constants'
 
 
@@ -30,7 +30,7 @@ export default function NewPaletteForm(props) {
 
   const theme=useTheme();
   const [open, setOpen]=useState(false);
-  const [colors, setColors]=useState(props.palettes[0].colors)
+  const [colors, setColors]=useState(seedColors[0].colors)
 
   const handleDrawerOpen=() => setOpen(true);
 
